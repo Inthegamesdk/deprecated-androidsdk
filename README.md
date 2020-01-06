@@ -10,12 +10,13 @@ In your Android project, choose **File > New > New module > Import from .aar fil
 
 Select the **itgframework.aar** file (included in this repo).
 
-Add the following imports to your app's build.gradle:
+Add the following imports (if missing) to your app's build.gradle:
 
 ```
 implementation project(":itgframework")
 implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
 implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.61"
 ```
 
 ## Usage
@@ -56,6 +57,16 @@ playerView.load("<your video url>", "en", false)
 ```
 
 ## Notes
+
+Here is the activity loading code for Java:
+
+```
+Intent intent = new Intent(MainActivity.this, ITGPlayerActivity.class);
+Bundle bundle = new Bundle();
+bundle.putString(ITGPlayerActivity.getURL_PARAM(), videoURL);
+intent.putExtras(bundle);
+startActivity(intent);
+```
 
 If you run into an Android AppCompat bug that causes webviews to crash, go to the app's build.gradle file and replace this line:
 ```

@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    val videoURL = "https://media.inthegame.io/uploads/videos/manutdSecondHalf.mp4"
+    private val videoURL = "https://media.inthegame.io/uploads/videos/4engagementvideo.mp4"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, ITGPlayerActivity::class.java)
         var bundle = Bundle()
         bundle.putString(ITGPlayerActivity.URL_PARAM, videoURL)
+        bundle.putString(ITGPlayerActivity.BROADCASTER_PARAM, "demos")
         intent.putExtras(bundle)
         startActivity(intent)
     }

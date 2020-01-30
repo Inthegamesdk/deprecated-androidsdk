@@ -29,6 +29,7 @@ val videoURL = "<your video url>"
 val intent = Intent(this, ITGPlayerActivity::class.java)
 var bundle = Bundle()
 bundle.putString(ITGPlayerActivity.URL_PARAM, videoURL)
+bundle.putString(ITGPlayerActivity.BROADCASTER_PARAM, "<your broadcaster name>")
 intent.putExtras(bundle)
 startActivity(intent)
 ```
@@ -47,13 +48,13 @@ To load the video channel in a view in your custom layout file:
 And load it in your activity/fragment (we recommend doing it in `onResume`):
 
 ```
-playerView.load("<your video url>")
+playerView.load("<your video url>", "<your broadcaster name>")
 ```
 
 There are two additional parameters for further configuration: `language` and `allowsFullScreen`:
 
 ```
-playerView.load("<your video url>", "en", false)
+playerView.load("<your video url>", "<your broadcaster name>", "en", false)
 ```
 
 ## Notes
@@ -64,6 +65,7 @@ Here is the activity loading code for Java:
 Intent intent = new Intent(MainActivity.this, ITGPlayerActivity.class);
 Bundle bundle = new Bundle();
 bundle.putString(ITGPlayerActivity.getURL_PARAM(), videoURL);
+bundle.putString(ITGPlayerActivity.getBROADCASTER_PARAM(), "<your broadcaster name>");
 intent.putExtras(bundle);
 startActivity(intent);
 ```

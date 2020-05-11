@@ -1,13 +1,12 @@
-package com.tiagolira.inthegame
+package com.inthegame.inthegame
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.content.Intent
 import android.net.ConnectivityManager
 import android.widget.Toast
-import com.tiagolira.itgframework.ITGPlayerActivity
+import com.inthegame.itgframework.ITGPlayerActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 

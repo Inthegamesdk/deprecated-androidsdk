@@ -1,4 +1,4 @@
-package com.tiagolira.inthegame
+package com.inthegame.inthegame
 
 import android.content.res.Configuration
 import android.os.Bundle

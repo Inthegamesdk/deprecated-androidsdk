@@ -15,7 +15,7 @@
             android:translationZ="1dp"
             android:background="@android:color/transparent">
 
-        <VideoView
+        <com.tiagolira.itgframework.CustomVideoView
                 android:id="@+id/videoView"
                 android:layout_width="0dp"
                 android:layout_height="0dp"

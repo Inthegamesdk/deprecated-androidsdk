@@ -19,7 +19,8 @@
         <activity
             android:name="com.inthegame.itgframework.ITGPlayerActivity"
             android:configChanges="orientation|screenSize|screenLayout"
-            android:theme="@style/AppTheme.FullScreen" >
+            android:theme="@style/AppTheme.FullScreen"
+            android:windowSoftInputMode="adjustResize" >
         </activity>
     </application>
 

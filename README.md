@@ -38,7 +38,7 @@ To load the video channel in a view in your custom layout file:
 (add constraints or layout parameters as needed)
 
 ```
-<com.tiagolira.itgframework.ITGPlayerView
+<com.inthegame.itgframework.ITGPlayerView
   android:id="@+id/playerView"
   android:layout_width="match_parent"
   android:layout_height="100dp"
@@ -51,11 +51,55 @@ And load it in your activity/fragment (we recommend doing it in `onResume`):
 playerView.load("<your video url>", "<your broadcaster name>")
 ```
 
-There are two additional parameters for further configuration: `language` and `allowsFullScreen`:
+There are two additional parameters for further configuration: `language`, `allowsFullScreen` and `devMode`:
 
 ```
-playerView.load("<your video url>", "<your broadcaster name>", "en", false)
+playerView.load("<your video url>", "<your broadcaster name>", "en", false, false)
 ```
+
+You can set devMode to true to use the development environment. If not specified, production environment is used as the default. 
+
+
+## Overlay mode
+
+The overlay option allows for maximum flexibility - you create a view for the ITG interactive Overlay and position it over your video player as you see fit.
+
+You can add the overlay in a view in your layout file:
+```
+<com.inthegame.itgframework.ITGOverlayView />
+```
+
+You can load it as:
+```
+overlayView.load("<your video url>", "<your broadcaster name>")
+```
+
+You will need to send playback updates manually to the overlay
+(please remember to update the timer whenever you seek to a different part of the video, and to send play/pause commands whenever the video is started or paused):
+```
+overlayView.sendCommand(ITGOverlayView.COMMAND_PLAY)
+overlayView.sendCommand(ITGOverlayView.COMMAND_PAUSE)
+overlayView.sendCommand(ITGOverlayView.COMMAND_STOP)
+overlayView.updateTime(10000) //in milliseconds
+```
+
+The overlay content will be sized to take the available space while fitting a specified video aspect. The default is the standard 16:9. For other video formats, you can set the aspect ratio as:
+```
+overlayView.setAspectRatio("4:3")
+```
+
+If you need to detect touches on the video area, the load method accepts a listener for it:
+```
+val listener = object: ITGVideoTapListener {
+   override fun didTapVideo() {
+      //handle the tap event
+   }
+}
+overlayView.load("<your video url>", "<your broadcaster name>", "en", listener)
+```
+
+You can check the `OverlayActivity` in the example app for a detailed integration sample.
+
 
 ## Notes
 

@@ -19,7 +19,7 @@ class ExampleActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         //load the interactive video view
-        playerView.load("https://media.inthegame.io/uploads/videos/4engagementvideo.mp4", "demos")
+        playerView.load(videoURL, broadcaster, devMode = true)
     }
 
 }

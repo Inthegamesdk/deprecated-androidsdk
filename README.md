@@ -88,11 +88,14 @@ The overlay content will be sized to take the available space while fitting a sp
 overlayView.setAspectRatio("4:3")
 ```
 
-If you need to detect touches on the video area, the load method accepts a listener for it:
+The listener allows you to detect when an activity is opened or closed, and to detect touches on the video area:
 ```
 val listener = object: ITGVideoTapListener {
+   override fun didOpenActivity() {
+   }
+   override fun didCloseActivity() {
+   }
    override fun didTapVideo() {
-      //handle the tap event
    }
 }
 overlayView.load("<your video url>", "<your broadcaster name>", "en", listener)

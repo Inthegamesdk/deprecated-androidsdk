@@ -90,7 +90,7 @@ overlayView.setAspectRatio("4:3")
 
 The listener allows you to detect when an activity is opened or closed, and to detect touches on the video area:
 ```
-val listener = object: ITGVideoTapListener {
+val listener = object: ITGOverlayListener {
    override fun didOpenActivity() {
    }
    override fun didCloseActivity() {

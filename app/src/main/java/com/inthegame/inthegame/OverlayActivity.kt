@@ -7,9 +7,9 @@ import android.util.Log
 import android.widget.MediaController
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintSet
+import com.inthegame.itgframework.ITGOverlayListener
 import com.inthegame.itgframework.ITGOverlayView
 import com.inthegame.itgframework.ITGPlayerView
-import com.inthegame.itgframework.ITGVideoTapListener
 import kotlinx.android.synthetic.main.activity_overlay.*
 
 class OverlayActivity : AppCompatActivity() {
@@ -29,7 +29,15 @@ class OverlayActivity : AppCompatActivity() {
 
         //create a listener to detect when the user taps the empty video area
         //(to show any custom controls, for example)
-        val listener = object: ITGVideoTapListener {
+        val listener = object: ITGOverlayListener {
+            override fun didOpenActivity() {
+                Log.d("ITG", "did open activity")
+            }
+
+            override fun didCloseActivity() {
+                Log.d("ITG", "did close activity")
+            }
+
             override fun didTapVideo() {
                 Log.d("ITG", "did tap video area")
             }
@@ -37,7 +45,7 @@ class OverlayActivity : AppCompatActivity() {
         }
 
         //load the overlay
-        overlayView.load(videoURL, broadcaster, "en", listener, true)
+        overlayView.load(videoURL, broadcaster, "heb", listener, true)
 
 
         val uri = Uri.parse(videoURL)

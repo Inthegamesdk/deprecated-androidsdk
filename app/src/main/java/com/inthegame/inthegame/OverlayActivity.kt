@@ -45,7 +45,7 @@ class OverlayActivity : AppCompatActivity() {
         }
 
         //load the overlay
-        overlayView.load(videoURL, broadcaster, "heb", listener, true)
+        overlayView.load(videoURL, broadcaster, "en", listener, true)
 
 
         val uri = Uri.parse(videoURL)

@@ -14,7 +14,6 @@ import kotlinx.android.synthetic.main.activity_overlay.*
 
 class OverlayActivity : AppCompatActivity() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_overlay)
@@ -47,11 +46,11 @@ class OverlayActivity : AppCompatActivity() {
         //load the overlay
         overlayView.load(videoURL, broadcaster, "en", listener, true)
 
-
         val uri = Uri.parse(videoURL)
         videoView.setVideoURI(uri)
         videoView.requestFocus()
         videoView.start()
+        overlayView.sendCommand(ITGOverlayView.COMMAND_PLAY)
 
         videoView.setOnPreparedListener { mp: MediaPlayer ->
             mp.setVideoScalingMode(MediaPlayer.VIDEO_SCALING_MODE_SCALE_TO_FIT)

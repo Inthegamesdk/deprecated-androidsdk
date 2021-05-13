@@ -51,7 +51,7 @@ And load it in your activity/fragment (we recommend doing it in `onResume`):
 playerView.load("<your video url>", "<your broadcaster name>")
 ```
 
-There are two additional parameters for further configuration: `language`, `allowsFullScreen` and `devMode`:
+There are additional parameters for further configuration: `language`, `allowsFullScreen` and `devMode`:
 
 ```
 playerView.load("<your video url>", "<your broadcaster name>", "en", false, false)
@@ -59,6 +59,7 @@ playerView.load("<your video url>", "<your broadcaster name>", "en", false, fals
 
 You can set devMode to true to use the development environment. If not specified, production environment is used as the default. 
 
+If you want to connect ITG content with your user's account, there are other parameters in the `load()` method where you can specify your user's ID and display name. The variables are called `userBroadcasterForeignID` and `userInitialName`.
 
 ## Overlay mode
 

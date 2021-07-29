@@ -9,8 +9,8 @@ import android.widget.Toast
 import com.inthegame.itgframework.ITGPlayerActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
-val videoURL = "https://api-dev.inthegame.io/uploads/videos/streamers/a64706dd0f42356e93d299075940c456.857ecbb7a131f9bb4940a6b8ad5ec70e.mp4"
 val broadcaster = "orlandofcchannel"
+val videoURL = "https://media2.inthegame.io/uploads/videos/streamers/a64706dd0f42356e93d299075940c456.857ecbb7a131f9bb4940a6b8ad5ec70e.mp4"
 
 class MainActivity : AppCompatActivity() {
 
